@@ -10,6 +10,7 @@ export type Props = {
 
 	equipped: boolean?,
 	unlocked: boolean?,
+	order: number?,
 
 	children: any?,
 }
@@ -27,6 +28,7 @@ local function SlotButton(props: Props)
 
 	return React.createElement("TextButton", {
 		Text = slotText,
+		LayoutOrder = props.order,
 		[React.Tag] = tags,
 	}, {
 		NumberHint = React.createElement("TextLabel", {
