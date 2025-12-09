@@ -11,6 +11,10 @@ return {
 	story = function()
 		local component = React.createElement(SearchBar, {
 			size = UDim2.fromOffset(190, 30),
+		}, {
+			StyleLink = React.createElement("StyleLink", {
+				StyleSheet = game.ReplicatedStorage.Design.SatchelStyleSheet,
+			}),
 		})
 
 		return component
