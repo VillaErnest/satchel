@@ -10,6 +10,7 @@ export type Props = {
 
 	equipped: boolean?,
 	unlocked: boolean?,
+	children: any?,
 }
 
 local function SlotButton(props: Props)
@@ -38,10 +39,7 @@ local function SlotButton(props: Props)
 			Text = props.tooltipText or "",
 			[React.Tag] = "ToolTip",
 		}),
-		StyleLink = React.createElement("StyleLink", {
-			StyleSheet = game.ReplicatedStorage.Design.SatchelStyleSheet,
-		}),
-	})
+	}, props.children)
 end
 
 return SlotButton

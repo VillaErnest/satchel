@@ -26,6 +26,10 @@ return {
 			tooltipText = props.controls.TooltipText,
 			equipped = props.controls.Equipped,
 			unlocked = props.controls.Unlocked,
+		}, {
+			StyleLink = React.createElement("StyleLink", {
+				StyleSheet = game.ReplicatedStorage.Design.SatchelStyleSheet,
+			}),
 		})
 
 		return component
