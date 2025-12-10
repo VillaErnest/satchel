@@ -17,6 +17,7 @@ export type Props = {
 }
 
 local function SlotButton(props: Props)
+	-- Generate tags based on state
 	local tags = "Slot"
 	if props.unlocked then
 		tags = tags .. " Unlocked"
@@ -25,7 +26,11 @@ local function SlotButton(props: Props)
 		tags = tags .. " Equipped"
 	end
 
-	local slotText = if props.toolImage == nil or "" then "" else props.toolName or ""
+	-- Hide the name if there is an image
+	local slotText = props.toolName
+	if props.toolImage and props.toolImage ~= "" then
+		slotText = ""
+	end
 
 	return React.createElement("TextButton", {
 		Text = slotText,
