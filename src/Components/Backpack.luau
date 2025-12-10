@@ -2,15 +2,17 @@
 
 local React = require("../../react")
 
-local Slot = require("../Components/Slot")
+local Hotbar = require("./Hotbar")
 
-local function Backpack()
+export type Props = {
+	children: any?,
+}
+
+local function Backpack(props: Props)
 	return React.createElement("Frame", {
 		[React.Tag] = "Backpack",
 	}, {
-		Slot = React.createElement(Slot, {
-			toolName = "Hello world!",
-		}),
+		Hotbar = React.createElement(Hotbar, props.children),
 	})
 end
 
