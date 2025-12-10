@@ -9,7 +9,7 @@ export type Props = {
 	children: any?,
 }
 
-local function HintSlotImageLabel(props: Props)
+local function HotbarHint(props: Props)
 	return React.createElement("ImageLabel", {
 		Image = props.hintImage,
 		LayoutOrder = props.order,
@@ -17,4 +17,4 @@ local function HintSlotImageLabel(props: Props)
 	}, props.children)
 end
 
-return HintSlotImageLabel
+return HotbarHint

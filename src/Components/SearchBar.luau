@@ -8,11 +8,11 @@ export type Props = {
 	children: any?,
 }
 
-local function SearchBarTextBox(props: Props)
+local function SearchBar(props: Props)
 	return React.createElement("TextBox", {
 		Size = props.size,
 		[React.Tag] = "SearchBar",
 	}, props.children)
 end
 
-return SearchBarTextBox
+return SearchBar

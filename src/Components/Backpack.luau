@@ -4,7 +4,7 @@ local React = require("../../react")
 
 local Slot = require("../Components/Slot")
 
-local function BackpackFrame()
+local function Backpack()
 	return React.createElement("Frame", {
 		[React.Tag] = "Backpack",
 	}, {
@@ -14,4 +14,4 @@ local function BackpackFrame()
 	})
 end
 
-return BackpackFrame
+return Backpack

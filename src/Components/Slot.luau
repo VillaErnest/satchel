@@ -18,7 +18,7 @@ export type Props = {
 	children: any?,
 }
 
-local function SlotButton(props: Props)
+local function Slot(props: Props)
 	-- Generate tags based on state
 	local tags = "Slot"
 	if props.unlocked then
@@ -53,4 +53,4 @@ local function SlotButton(props: Props)
 	}, props.children)
 end
 
-return SlotButton
+return Slot

@@ -6,10 +6,10 @@ export type Props = {
 	children: any?,
 }
 
-local function HotbarFrame(props: Props)
+local function Hotbar(props: Props)
 	return React.createElement("Frame", {
 		[React.Tag] = "Hotbar",
 	}, props.children)
 end
 
-return HotbarFrame
+return Hotbar
