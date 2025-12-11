@@ -7,17 +7,15 @@ local React = require("../../react")
 local ToolTip = require("./ToolTip")
 
 export type Props = {
-	toolName: string?,
 	slotNumber: number?,
 	toolImage: string?,
+	toolName: string?,
 	tooltipText: string?,
-
-	forceVisible: boolean?,
 	equipped: boolean?,
+	forceVisible: boolean?,
 	unlocked: boolean?,
 	order: number?,
 	onActivated: (() -> ())?,
-
 	children: any?,
 }
 

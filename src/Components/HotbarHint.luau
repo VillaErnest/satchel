@@ -6,9 +6,8 @@ local React = require("../../react")
 
 export type Props = {
 	hintKey: Enum.KeyCode,
-	order: number?,
 	forceVisible: boolean?,
-
+	order: number?,
 	children: any?,
 }
 

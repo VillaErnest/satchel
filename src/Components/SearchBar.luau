@@ -4,7 +4,6 @@ local React = require("../../react")
 
 export type Props = {
 	size: UDim2?,
-
 	children: any?,
 }
 
