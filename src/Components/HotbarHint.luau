@@ -13,6 +13,7 @@ export type Props = {
 }
 
 local function HotbarHint(props: Props)
+	-- Only show hint if gamepad is preferred or forced visible
 	local isGamepadPreferred, setIsGamepadPreferred =
 		React.useState(UserInputService.PreferredInput == Enum.PreferredInput.Gamepad)
 

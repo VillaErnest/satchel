@@ -7,7 +7,7 @@ local Hotbar = require("../Components/Hotbar")
 local Slot = require("../Components/Slot")
 
 local controls = {
-	Visible = true,
+	ForceHintVisible = true,
 }
 
 return {
@@ -16,7 +16,7 @@ return {
 	controls = controls,
 	story = function(props)
 		local component = React.createElement(Hotbar, {
-			forceHintVisible = props.controls.Visible,
+			forceHintVisible = props.controls.ForceHintVisible,
 		}, {
 			Tool = React.createElement(Slot, {
 				toolName = "Classic Sword",

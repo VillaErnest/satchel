@@ -6,7 +6,7 @@ local ReactRoblox = require("../../react-roblox")
 local HotbarHint = require("../Components/HotbarHint")
 
 local controls = {
-	Visible = true,
+	ForceHintVisible = true,
 }
 
 return {
@@ -16,7 +16,7 @@ return {
 	story = function(props)
 		local component = React.createElement(HotbarHint, {
 			hintKey = Enum.KeyCode.ButtonX,
-			forceVisible = props.controls.Visible,
+			forceVisible = props.controls.ForceHintVisible,
 		}, {
 			StyleLink = React.createElement("StyleLink", {
 				StyleSheet = game.ReplicatedStorage.Design.SatchelStyleSheet,

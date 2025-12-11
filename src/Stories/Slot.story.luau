@@ -12,6 +12,7 @@ local controls = {
 	TooltipText = "A classic sword",
 	Equipped = false,
 	Unlocked = false,
+	ForceNumberVisible = true,
 }
 
 return {
@@ -26,6 +27,7 @@ return {
 			tooltipText = props.controls.TooltipText,
 			equipped = props.controls.Equipped,
 			unlocked = props.controls.Unlocked,
+			forceVisible = props.controls.ForceNumberVisible,
 		}, {
 			StyleLink = React.createElement("StyleLink", {
 				StyleSheet = game.ReplicatedStorage.Design.SatchelStyleSheet,

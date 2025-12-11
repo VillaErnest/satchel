@@ -1,7 +1,5 @@
 --!strict
 
-local UserInputService = game:GetService("UserInputService")
-
 local React = require("../../react")
 
 local HotbarHint = require("./HotbarHint")
