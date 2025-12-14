@@ -13,6 +13,9 @@ local function Backpack(props: Props)
 		[React.Tag] = "Backpack",
 	}, {
 		Hotbar = React.createElement(Hotbar, props.children),
+		StyleLink = React.createElement("StyleLink", {
+			StyleSheet = game.ReplicatedStorage.Design.SatchelStyleSheet,
+		}),
 	})
 end
 
