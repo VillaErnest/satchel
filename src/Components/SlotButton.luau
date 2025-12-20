@@ -55,6 +55,22 @@ function SlotButton.onPreferredInputChanged(self: ClassType)
 	self._instance.hint.Visible = isKeyboardAndMouse
 end
 
+function SlotButton.setUnlocked(self: ClassType, unlocked: boolean)
+	if unlocked then
+		self._instance.button:AddTag("Unlocked")
+	else
+		self._instance.button:RemoveTag("Unlocked")
+	end
+end
+
+function SlotButton.setEquipped(self: ClassType, equipped: boolean)
+	if equipped then
+		self._instance.button:AddTag("Equipped")
+	else
+		self._instance.button:RemoveTag("Equipped")
+	end
+end
+
 function SlotButton.setParent(self: ClassType, parent: GuiBase2d?)
 	self._instance.button.Parent = parent
 end
