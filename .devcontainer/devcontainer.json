@@ -2,7 +2,7 @@
 // README at: https://github.com/ryanlua/templates/tree/main/src/roblox
 {
 	"name": "Roblox",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfil
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
 
 	"features": {
@@ -16,18 +16,12 @@
 	// Configure tool-specific properties.
 	"customizations": {
 		// Configure properties specific to VS Code.
-		"codespaces": {
-			"openFiles": [
-				"src/init.luau"
-			]
-		},
 		"vscode": {
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"kampfkarren.selene-vscode",
 				"johnnymorganz.stylua",
-				"johnnymorganz.luau-lsp",
-				"DavidAnson.vscode-markdownlint"
+				"johnnymorganz.luau-lsp"
 			]
 		}
 	},
