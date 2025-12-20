@@ -11,6 +11,9 @@ export type ClassType = typeof(setmetatable(
 	{} :: {
 		_instance: {
 			button: TextButton,
+			hint: TextLabel,
+			icon: ImageLabel,
+			tooltip: TextLabel,
 		},
 	},
 	SlotButton
@@ -18,11 +21,17 @@ export type ClassType = typeof(setmetatable(
 
 function SlotButton.new(): ClassType
 	local buttonInstance = slotButtonTemplate:Clone()
+	local hintText = buttonInstance:WaitForChild("NumberHint") :: TextLabel
+	local iconImage = buttonInstance:WaitForChild("TextureIcon") :: ImageLabel
+	local tooltipText = buttonInstance:WaitForChild("ToolTip") :: TextLabel
 
 	local self = setmetatable({
 		activated = buttonInstance.Activated,
 		_instance = {
 			button = buttonInstance,
+			hint = hintText,
+			icon = iconImage,
+			tooltip = tooltipText,
 		},
 	}, SlotButton)
 
@@ -40,13 +49,12 @@ function SlotButton.setText(self: ClassType, text: string)
 end
 
 function SlotButton.setTooltipText(self: ClassType, text: string)
-	local tooltipTextLabel = self._instance.button:WaitForChild("ToolTip") :: TextLabel
-
+	local tooltipTextLabel = self._instance.tooltip
 	tooltipTextLabel.Text = text
 end
 
 function SlotButton.setNumber(self: ClassType, number: number)
-	local numberTextLabel = self._instance.button:WaitForChild("Number") :: TextLabel
+	local numberTextLabel = self._instance.hint
 
 	numberTextLabel.Text = tostring(number)
 end
