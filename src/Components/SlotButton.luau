@@ -24,10 +24,10 @@ export type ClassType = typeof(setmetatable(
 		_toolChangedConnection: RBXScriptConnection?,
 	},
 	SlotButton
-))
+	))
 
 function SlotButton.new(): ClassType
-	local buttonInstance = Instance.new("TextButton") :: any -- TODO: Find why casting TextButton causes a type error
+	local buttonInstance = Instance.new("TextButton")
 	buttonInstance.Name = "Slot"
 	buttonInstance:AddTag("Slot")
 
@@ -46,7 +46,7 @@ function SlotButton.new(): ClassType
 	tooltipText.Parent = buttonInstance
 
 	local self = setmetatable({
-		activated = buttonInstance.Activated,
+		activated = buttonInstance.Activated :: RBXScriptSignal,
 		tool = nil :: Tool | HopperBin?,
 		_instance = {
 			button = buttonInstance,
@@ -55,7 +55,7 @@ function SlotButton.new(): ClassType
 			tooltip = tooltipText,
 		},
 		_connections = {},
-		_toolChangedConnection = nil,
+		_toolChangedConnection = nil :: RBXScriptConnection?,
 	}, SlotButton)
 
 	self:setText("")
