@@ -103,8 +103,8 @@ function SlotButton.setText(self: ClassType, text: string)
 	self._instance.button.Text = text
 end
 
-function SlotButton.setIcon(self: ClassType, iconAssetId: string)
-	self._instance.icon.Image = iconAssetId
+function SlotButton.setIcon(self: ClassType, image: string)
+	self._instance.icon.Image = image
 end
 
 function SlotButton.setTooltip(self: ClassType, text: string)
