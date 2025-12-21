@@ -22,7 +22,7 @@ export type ClassType = typeof(setmetatable(
 
 function SlotButton.new(): ClassType
 	local buttonInstance = Instance.new("TextButton")
-	buttonInstance.Name = "SlotButton"
+	buttonInstance.Name = "Slot"
 	buttonInstance:AddTag("Slot")
 
 	local hintText = Instance.new("TextLabel")
