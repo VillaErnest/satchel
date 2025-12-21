@@ -4,6 +4,7 @@
 	Slot button component representing a tool slot in the hotbar.
 ]]
 
+-- local GuiService = game:GetService("GuiService")
 local UserInputService = game:GetService("UserInputService")
 
 local SlotButton = {}
@@ -55,11 +56,21 @@ function SlotButton.new(): ClassType
 		_connections = {},
 	}, SlotButton)
 
+	-- Initial hint visibility based on preferred input
 	local preferredInputChangedConnection = UserInputService:GetPropertyChangedSignal("PreferredInput")
 		:Connect(function()
 			self:onPreferredInputChanged()
 		end)
+	self:onPreferredInputChanged()
 	table.insert(self._connections, preferredInputChangedConnection)
+
+	-- local defaultTransparency = buttonInstance.BackgroundTransparency
+	-- local preferredTransparencyChangedConnection = GuiService:GetPropertyChangedSignal("PreferredTransparency")
+	-- 	:Connect(function()
+	-- 		self:onPreferredTransparencyChanged(defaultTransparency)
+	-- 	end)
+	-- self:onPreferredTransparencyChanged(defaultTransparency)
+	-- table.insert(self._connections, preferredTransparencyChangedConnection)
 
 	return self
 end
@@ -81,6 +92,12 @@ function SlotButton.onPreferredInputChanged(self: ClassType)
 
 	self._instance.hint.Visible = isKeyboardAndMouse
 end
+
+-- function SlotButton.onPreferredTransparencyChanged(self: ClassType, defaultTransparency: number)
+-- 	local preferredTransparency = GuiService.PreferredTransparency
+
+-- 	self._instance.button.BackgroundTransparency = defaultTransparency * preferredTransparency
+-- end
 
 -- Sets whether this slot is unlocked and draggable
 function SlotButton.setUnlocked(self: ClassType, unlocked: boolean)
