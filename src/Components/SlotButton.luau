@@ -26,13 +26,12 @@ export type ClassType = typeof(setmetatable(
 ))
 
 function SlotButton.new(): ClassType
-	local buttonInstance = Instance.new("TextButton")
+	local buttonInstance = Instance.new("TextButton") :: any -- TODO: Find why casting TextButton causes a type error
 	buttonInstance.Name = "Slot"
 	buttonInstance:AddTag("Slot")
 
 	local hintText = Instance.new("TextLabel")
 	hintText.Name = "NumberHint"
-	hintText:AddTag("SlotNumber")
 	hintText.Parent = buttonInstance
 
 	local iconImage = Instance.new("ImageLabel")
@@ -55,6 +54,10 @@ function SlotButton.new(): ClassType
 		},
 		_connections = {},
 	}, SlotButton)
+
+	self:setText("")
+	self:setHint("")
+	self:setTooltip("")
 
 	-- Initial hint visibility based on preferred input
 	local preferredInputChangedConnection = UserInputService:GetPropertyChangedSignal("PreferredInput")
@@ -118,7 +121,7 @@ function SlotButton.setEquipped(self: ClassType, equipped: boolean)
 end
 
 -- Sets the tool associated with this slot button
-function SlotButton.setTool(self: ClassType, tool: Tool | HopperBin?)
+function SlotButton.setTool(self: ClassType, tool: Tool | HopperBin)
 	self.tool = tool
 
 	-- Update the button based on the tool
@@ -129,10 +132,6 @@ function SlotButton.setTool(self: ClassType, tool: Tool | HopperBin?)
 			if self.tool:IsA("Tool") then
 				self:setTooltip(self.tool.ToolTip)
 			end
-		else
-			self:setText("")
-			self:setIcon("")
-			self:setTooltip("")
 		end
 	end
 	onToolChange()
@@ -158,6 +157,12 @@ end
 
 -- Sets the tooltip text of the slot button
 function SlotButton.setTooltip(self: ClassType, text: string)
+	if text == "" then
+		self._instance.tooltip:RemoveTag("ToolTip")
+	else
+		self._instance.tooltip:AddTag("ToolTip")
+	end
+
 	self._instance.tooltip.Text = text
 end
 
