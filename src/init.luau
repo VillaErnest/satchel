@@ -11,6 +11,11 @@ local Backpack = require("@self/Components/Backpack")
 local handle = Instance.new("ScreenGui")
 handle.Name = "SatchelGui"
 handle.Parent = playerGui
+
+local styleLink = Instance.new("StyleLink")
+styleLink.StyleSheet = script.StyleSheets.SatchelStyleSheet
+styleLink.Parent = handle
+
 local root = ReactRoblox.createRoot(handle)
 root:render({ Backpack = React.createElement(Backpack) })
 
