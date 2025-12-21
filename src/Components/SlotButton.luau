@@ -1,5 +1,9 @@
 --!strict
 
+--[[
+	Slot button component representing a tool slot in the hotbar.
+]]
+
 local UserInputService = game:GetService("UserInputService")
 
 local SlotButton = {}
@@ -60,6 +64,7 @@ function SlotButton.new(): ClassType
 	return self
 end
 
+-- Cleans up the slot button and disconnects events
 function SlotButton.destroy(self: ClassType)
 	self.tool = nil
 	self._instance.button:Destroy()
@@ -69,6 +74,7 @@ function SlotButton.destroy(self: ClassType)
 	end
 end
 
+-- Updates the hint visibility based on preferred input method
 function SlotButton.onPreferredInputChanged(self: ClassType)
 	local preferredInput = UserInputService.PreferredInput
 	local isKeyboardAndMouse = preferredInput == Enum.PreferredInput.KeyboardAndMouse
@@ -76,6 +82,7 @@ function SlotButton.onPreferredInputChanged(self: ClassType)
 	self._instance.hint.Visible = isKeyboardAndMouse
 end
 
+-- Sets whether this slot is unlocked and draggable
 function SlotButton.setUnlocked(self: ClassType, unlocked: boolean)
 	if unlocked then
 		self._instance.button:AddTag("Unlocked")
@@ -84,6 +91,7 @@ function SlotButton.setUnlocked(self: ClassType, unlocked: boolean)
 	end
 end
 
+-- Sets whether the slot is equipped and has selection outline shown
 function SlotButton.setEquipped(self: ClassType, equipped: boolean)
 	if equipped then
 		self._instance.button:AddTag("Equipped")
@@ -92,9 +100,11 @@ function SlotButton.setEquipped(self: ClassType, equipped: boolean)
 	end
 end
 
+-- Sets the tool associated with this slot button
 function SlotButton.setTool(self: ClassType, tool: Tool | HopperBin?)
 	self.tool = tool
 
+	-- Update the button based on the tool
 	local function onToolChange()
 		if self.tool then
 			self:setText(self.tool.Name)
@@ -110,6 +120,7 @@ function SlotButton.setTool(self: ClassType, tool: Tool | HopperBin?)
 	end
 	onToolChange()
 
+	-- Connect to tool property changes
 	local toolChangedConnection = tool.Changed:Connect(function(property)
 		if property == "Name" or property == "TextureId" or property == "ToolTip" then
 			onToolChange()
@@ -118,22 +129,27 @@ function SlotButton.setTool(self: ClassType, tool: Tool | HopperBin?)
 	table.insert(self._connections, toolChangedConnection)
 end
 
+-- Sets the text displayed on the slot button
 function SlotButton.setText(self: ClassType, text: string)
 	self._instance.button.Text = text
 end
 
+-- Sets the icon image of the slot button
 function SlotButton.setIcon(self: ClassType, image: string)
 	self._instance.icon.Image = image
 end
 
+-- Sets the tooltip text of the slot button
 function SlotButton.setTooltip(self: ClassType, text: string)
 	self._instance.tooltip.Text = text
 end
 
+-- Sets the (number) hint text of the slot button
 function SlotButton.setHint(self: ClassType, hint: string)
 	self._instance.hint.Text = tostring(hint)
 end
 
+-- Sets the parent of the slot button
 function SlotButton.setParent(self: ClassType, parent: GuiBase2d?)
 	self._instance.button.Parent = parent
 end
