@@ -24,7 +24,7 @@ export type ClassType = typeof(setmetatable(
 		_toolChangedConnection: RBXScriptConnection?,
 	},
 	SlotButton
-	))
+))
 
 function SlotButton.new(): ClassType
 	local buttonInstance = Instance.new("TextButton")
@@ -144,7 +144,12 @@ end
 
 -- Sets the icon image of the slot button
 function SlotButton.setIcon(self: ClassType, image: string)
-	self._instance.icon.Image = image
+	if image ~= "" then
+		self._instance.button.TextTransparency = 1
+		self._instance.icon.Image = image
+	else
+		self._instance.button.TextTransparency = 0
+	end
 end
 
 -- Sets the tooltip text of the slot button
