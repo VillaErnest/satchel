@@ -87,8 +87,8 @@ Special thanks for our sponsors for supporting Satchel and it's future developme
 
 <div class="mdx-premium" markdown>
 
-[![Do Big Studios](assets/sponsors/do-big-light.png#only-light){ style="height: 60px" }](https://www.dobigstudios.com/){ target=_blank title="Do Big Studios" }
-[![Do Big Studios](assets/sponsors/do-big-dark.png#only-dark){ style="height: 60px" }](https://www.dobigstudios.com/){ target=_blank title="Do Big Studios" }
+[![Do Big Studios](assets/sponsors/do-big-light.png#only-light){ style="height: 60px" }](https://dobig.com/){ target=_blank title="Do Big Studios" }
+[![Do Big Studios](assets/sponsors/do-big-dark.png#only-dark){ style="height: 60px" }](https://dobig.com/){ target=_blank title="Do Big Studios" }
 
 </div>
 

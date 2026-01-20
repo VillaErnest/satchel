@@ -38,7 +38,7 @@ Special thanks for our sponsors for supporting Satchel and it's future developme
 <br>
 
 <p align="center">
-  <a href="https://www.dobigstudios.com/" target=_blank>
+  <a href="https://dobig.com/" target=_blank>
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="docs/assets/sponsors/do-big-dark.png" height="60">
       <source media="(prefers-color-scheme: light)" srcset="docs/assets/sponsors/do-big-light.png" height="60">
