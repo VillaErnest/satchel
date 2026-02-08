@@ -412,6 +412,7 @@ local function MakeSlot(parent: Instance, initIndex: number?): GuiObject
 		-- Update the slot with tool data
 		local function assignToolData(): ()
 			local icon: string = tool.TextureId
+			ToolIcon.ScaleType = Enum.ScaleType.Fit
 			ToolIcon.Image = icon
 
 			if icon ~= "" then
