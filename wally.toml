@@ -1,7 +1,7 @@
 [package]
 name = "villaernest/satchel"
 description = "A modern open-source alternative to Roblox's default backpack."
-version = "1.4.1"
+version = "1.4.2"
 license = "MPL-2.0"
 authors = ["Ernest Villacorta <ernest@villaernest.dev>", "Ryan Luu <ryan.luu@ryanluu.dev>"]
 realm = "shared"
