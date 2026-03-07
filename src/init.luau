@@ -59,6 +59,7 @@ local SLOT_EQUIP_COLOR: Color3 = targetScript:GetAttribute("EquipBorderColor3") 
 local SLOT_LOCKED_TRANSPARENCY_DEFAULT: number = targetScript:GetAttribute("BackgroundTransparency") or 0.3 -- Locked means undraggable
 local SLOT_LOCKED_TRANSPARENCY: number = SLOT_LOCKED_TRANSPARENCY_DEFAULT * PREFERRED_TRANSPARENCY
 local SLOT_EQUIP_THICKNESS: number = targetScript:GetAttribute("EquipBorderSizePixel") or 5 -- Relative
+local SLOT_EQUIP_THICKNESS_FOR_UI_STROKE: number = targetScript:GetAttribute("EquipUIStrokeThickness") or 0.3 -- Scaled
 local SLOT_CORNER_RADIUS: UDim = targetScript:GetAttribute("CornerRadius") or UDim.new(0, 8)
 local SLOT_BORDER_COLOR: Color3 = Color3.new(1, 1, 1) -- Appears when dragging
 
@@ -518,7 +519,9 @@ local function MakeSlot(parent: Instance, initIndex: number?): GuiObject
 			if not HighlightFrame then
 				HighlightFrame = Instance.new("UIStroke")
 				HighlightFrame.Name = "Border"
-				HighlightFrame.Thickness = SLOT_EQUIP_THICKNESS
+				HighlightFrame.LineJoinMode = Enum.LineJoinMode.Miter
+				HighlightFrame.StrokeSizingMode = Enum.StrokeSizingMode.ScaledSize
+				HighlightFrame.Thickness = SLOT_EQUIP_THICKNESS_FOR_UI_STROKE
 				HighlightFrame.Color = SLOT_EQUIP_COLOR
 				HighlightFrame.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 			end
